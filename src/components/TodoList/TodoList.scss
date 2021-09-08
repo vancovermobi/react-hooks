@@ -1,0 +1,10 @@
+.todo-list{
+    text-align: left;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    &>li:hover{
+        text-decoration: underline;
+        color: darkblue;
+    }
+}
