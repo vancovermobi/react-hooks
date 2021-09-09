@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.scss";
 import ColorBox from "./components/ColorBox";
 import Pagination from "./components/Pagination";
@@ -6,6 +6,7 @@ import PostList from "./components/PostList";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 import queryString from 'query-string';
+import PostFiltersForm from "./components/PostFiltersForm";
 
 function App() {
   // useState() ============================
@@ -40,6 +41,7 @@ function App() {
     _limit: 10,
     _page: 1,
   });
+
   useEffect(() => {
     async function fetchPostList() {
       try {
@@ -50,8 +52,8 @@ function App() {
         const responseJSON = await response.json();
         // console.log(responseJSON);
         const { data , pagination } = responseJSON;
-        console.log('Pagination: ', pagination );
-        
+        // console.log('Pagination: ', pagination );
+
         setPostList(data);
         setPagination( pagination );
       } catch (error) {
@@ -61,8 +63,16 @@ function App() {
     fetchPostList();
   }, [ filters ]);
   function handlePageChange(page){
-    console.log('New page: ' , page);
+    // console.log('New page: ' , page);
     setFilters( { ...filters , _page: page } );
+  };
+  function handlePostfilterFormSubmit(search){
+    console.log(search.searchTerm);
+    setFilters({
+      ...filters,
+      _page: 1,
+      title_like: search.searchTerm,
+    });
   };
 
   return (
@@ -75,6 +85,7 @@ function App() {
       {/* <ColorBox /> */}
 
       {/* useEffect */}
+      <PostFiltersForm onSubmit={ handlePostfilterFormSubmit }/>
       <PostList posts={postList} />
       <Pagination  pagination={ pagination} onPageChange={ handlePageChange } />
 

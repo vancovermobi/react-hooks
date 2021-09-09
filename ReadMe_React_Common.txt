@@ -84,4 +84,11 @@ function Clock(){
 GET:  http://js-post-api.herokuapp.com/api/post?_limit=10&_page=1
 - _limit : số phần tử hiện mỗi trang .
 - _page: số trang hiện tại 
-
+- npm i --save query-string
+=>  
+const [filters, setFilters] = useState({
+    _limit: 10,
+    _page: 1,
+});
+const paramsString = queryString.stringify(filters);  // -> _limit=10&_page=1
+const requestUrl = `http://js-post-api.herokuapp.com/api/posts?${paramsString}`;
