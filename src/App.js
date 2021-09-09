@@ -8,6 +8,7 @@ import TodoList from "./components/TodoList";
 import queryString from 'query-string';
 import PostFiltersForm from "./components/PostFiltersForm";
 import Clock from "./components/Clock";
+import ClockCustomHooks from "./components/ClockCustomHooks";
 
 function App() {
   // useState() ============================
@@ -88,10 +89,12 @@ function App() {
 
       {/* useEffect */}
       <Clock />
-      <PostFiltersForm onSubmit={ handlePostfilterFormSubmit }/>
-      <PostList posts={postList} />
-      <Pagination  pagination={ pagination} onPageChange={ handlePageChange } />
+      {/* <PostFiltersForm onSubmit={ handlePostfilterFormSubmit }/> */}
+      {/* <PostList posts={postList} /> */}
+      {/* <Pagination  pagination={ pagination} onPageChange={ handlePageChange } /> */}
 
+      {/* Custom Hooks */}
+      <ClockCustomHooks />
 
     </div>
   );
