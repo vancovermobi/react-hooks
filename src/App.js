@@ -7,6 +7,7 @@ import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 import queryString from 'query-string';
 import PostFiltersForm from "./components/PostFiltersForm";
+import Clock from "./components/Clock";
 
 function App() {
   // useState() ============================
@@ -74,6 +75,7 @@ function App() {
       title_like: search.searchTerm,
     });
   };
+// Clock()========================================
 
   return (
     <div className="App">
@@ -85,6 +87,7 @@ function App() {
       {/* <ColorBox /> */}
 
       {/* useEffect */}
+      <Clock />
       <PostFiltersForm onSubmit={ handlePostfilterFormSubmit }/>
       <PostList posts={postList} />
       <Pagination  pagination={ pagination} onPageChange={ handlePageChange } />

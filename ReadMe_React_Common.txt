@@ -66,7 +66,7 @@ function Clock(){
                  const  hours = `0${now.getHours()}`.slice(-2);
                  const  minutes = `0${now.getMinutes()}`.slice(-2) ;
                  const  seconds = `0${now.getSeconds()}`.slice(-2);
-                 const  currentTimeString = `${hour}:${minutes}:${seconds}`;
+                 const  currentTimeString = `${hours}:${minutes}:${seconds}`;
 
                  setTimeString(currentTimeString);
            }, 1000 );
@@ -92,3 +92,4 @@ const [filters, setFilters] = useState({
 });
 const paramsString = queryString.stringify(filters);  // -> _limit=10&_page=1
 const requestUrl = `http://js-post-api.herokuapp.com/api/posts?${paramsString}`;
+** useRef() : tạo 1 object được giữ nguên giá trị sau những lần render , hay tử lúc component sinh ra đến khi mất đi , giá trị object useRef() không bị thay đổi.
