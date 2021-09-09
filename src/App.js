@@ -9,6 +9,7 @@ import queryString from 'query-string';
 import PostFiltersForm from "./components/PostFiltersForm";
 import Clock from "./components/Clock";
 import ClockCustomHooks from "./components/ClockCustomHooks";
+import MagicBox from "./components/MagicBox";
 
 function App() {
   // useState() ============================
@@ -95,6 +96,7 @@ function App() {
 
       {/* Custom Hooks */}
       <ClockCustomHooks />
+      <MagicBox />
 
     </div>
   );
